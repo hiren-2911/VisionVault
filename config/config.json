@@ -1,0 +1,19 @@
+{
+  "pin_json_path":"E:/OCR/aadhar_ocr/weights/pin_info.json",
+  "aadhar_yolo_weights": "E:/OCR/aadhar_ocr/weights/aadhar_yolo.pt",
+  "yolo_repo":"E:/OCR/aadhar_ocr/yolov5",
+  "applications": [
+    {
+    "application_name": "aadhar_ocr",
+    "use_gpu": true,
+    "yolo_threshold": 0.40,
+    "languages": ["en"],
+    "valid_extensions": [".jpg", ".jpeg", ".png", ".pdf"],
+    "aadhar_ocr": {
+      "enable_address_parsing": true,
+      "enable_dob_parsing": true,
+      "enable_gender_parsing": true,
+      "iou_threshold": 0.3
+    }
+  }]
+}
