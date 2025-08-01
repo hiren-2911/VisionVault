@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+
+  "formatters": {
+    "simple": {
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "extra": {
+      "format": "%(asctime)-16s %(name)-8s %(filename)-12s %(lineno)-6s %(funcName)-30s %(levelname)-8s %(message)s",
+      "datefmt": "%m-%d %H:%M:%S"
+    }
+  },
+
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+    "info_file_handler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "INFO",
+      "formatter": "simple",
+      "filename": "info.log",
+      "maxBytes": 10485760,
+      "backupCount": 40,
+      "encoding": "utf8"
+    },
+    "error_file_handler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "ERROR",
+      "formatter": "simple",
+      "filename": "errors.log",
+      "maxBytes": 10485760,
+      "backupCount": 40,
+      "encoding": "utf8"
+    }
+  },
+
+  "loggers": {
+    "config_manager": {
+      "level": "ERROR",
+      "handlers":  ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    },
+    "image_processor": {
+      "level": "ERROR",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }, 
+    "ocr_engine": {
+      "level": "INFO",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }, 
+    "test_parsers": {
+      "level": "INFO",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }, 
+    "card_processors": {
+      "level": "INFO",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }, 
+    "aadhar_processor": {
+      "level": "INFO",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }, 
+    "models_my": {
+      "level": "INFO",
+      "handlers": ["error_file_handler", "info_file_handler"],
+      "propagate": "no"
+    }
+  },
+
+  "root": {
+    "level": "INFO",
+    "handlers": ["console", "info_file_handler", "error_file_handler"]
+  }
+}
